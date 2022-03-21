@@ -25,7 +25,19 @@ public class ExampleMixin {
                     ordinal = 0
             )
     )
-    public double preLengthSquared(Vec3d instance){
+    public double preLengthSquared(Vec3d instance) {
+        return 1000000000;
+    }
+
+    @Redirect(
+            method = "onVehicleMove",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/util/math/Vec3d;lengthSquared()D",
+                    ordinal = 0
+            )
+    )
+    public double preVehicleLengthSquared(Vec3d instance) {
         return 1000000000;
     }
 }
