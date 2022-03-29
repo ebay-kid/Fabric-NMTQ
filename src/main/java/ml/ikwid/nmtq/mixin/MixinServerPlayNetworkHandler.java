@@ -1,22 +1,13 @@
-package net.fabricmc.example.mixin;
+package ml.ikwid.nmtq.mixin;
 
-import net.fabricmc.example.ExampleMod;
-import net.minecraft.network.packet.s2c.play.PlayerPositionLookS2CPacket;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.util.math.Vec3d;
-import org.apache.logging.log4j.LogManager;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
-import org.apache.logging.log4j.Logger;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import java.util.Collections;
-import java.util.Set;
-
 @Mixin(ServerPlayNetworkHandler.class)
-public class ExampleMixin {
+public class MixinServerPlayNetworkHandler {
     @Redirect(
             method = "onPlayerMove",
             at = @At(

@@ -6,7 +6,7 @@
   "name": "fabric-NMTQ",
   "description": "Removes Moved-Too-Quickly (No MTQ) for Fabric",
   "authors": [
-    "Abs"
+    "6Times"
   ],
   "contact": {
     "homepage": "",
@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "ml.ikwid.nmtq.NMTQ"
     ]
   },
   "mixins": [
@@ -31,8 +31,5 @@
     "fabric": "*",
     "minecraft": "1.17.x",
     "java": ">=16"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
