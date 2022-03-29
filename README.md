@@ -1,9 +1,15 @@
-# Fabric Example Mod
+#Fabric-NMTQ
+NMTQ stands for No Moved Too Quickly
 
-## Setup
+Basically removes the checks for entities and vehicles and prevents them from being lagged back for high-speed movement.
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+I highly doubt any other mod needs ServerPlayNetworkHandler (where code is messed with) so this should be compatible with everything. Open an issue otherwise.
+###You don't want this mod if you're worried about hackers.
 
-## License
+###Technical details:
+A mixin into ServerPlayNetworkHandler redirects the 2 calls to Vec3D.lengthSquared() to a method which returns 1 billion. Since this value is then subtracted from some other variable, it becomes negative right before a greater than check (so it's almost always false)
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+### Config coming soon :tm:
+
+
+MIT Licensed code
