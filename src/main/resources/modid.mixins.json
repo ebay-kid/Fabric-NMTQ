@@ -1,12 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "ml.ikwid.nmtq",
+  "package": "ml.ikwid.nmtq.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
   ],
   "server": [
-    "mixin.MixinServerPlayNetworkHandler"
+    "MixinServerPlayNetworkHandler"
   ],
   "injectors": {
     "defaultRequire": 1
