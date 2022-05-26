@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Config {
 	private Scanner input;
 
-	private HashMap<String, String> entries;
+	private final HashMap<String, String> entries;
 
 	public Config(String fileName, String defaultConfig) {
 		try {
@@ -23,7 +23,7 @@ public class Config {
 
 			try {
 				File config = new File(fileName);
-				config.createNewFile();
+				config.createNewFile(); // "Result of 'File.createNewFile()' is ignored" - IntelliJ, 2022
 				FileWriter writer = new FileWriter(config);
 				writer.write(defaultConfig);
 
@@ -54,8 +54,8 @@ public class Config {
 	 *
 	 * # This is a comment
 	 *
-	 * name:value
-	 * name2:value2
+	 * name=value
+	 * name2=value2
 	 *
 	 * and so on. This will therefore remove the line breaks and replace with an equals, and {@link #getEntries(String)}
 	 * will return a HashMap with the names mapped to entries.
