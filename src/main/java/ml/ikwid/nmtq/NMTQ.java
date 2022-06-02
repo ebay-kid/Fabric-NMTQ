@@ -19,7 +19,7 @@ public class NMTQ implements ModInitializer {
 		vehicleMoveWrong=false
 		""";
 	public static final Logger LOGGER = LogManager.getLogger("fabric-nmtq");
-	public static final Config config = new Config("config/nmtq.txt", newConfig);
+	public static final Config config = new Config("config\\nmtq.txt", newConfig);
 
 	@Override
 	public void onInitialize() {

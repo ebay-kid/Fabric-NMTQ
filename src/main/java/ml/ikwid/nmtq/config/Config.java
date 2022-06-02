@@ -23,13 +23,19 @@ public class Config {
 
 			try {
 				File config = new File(fileName);
-				config.createNewFile(); // "Result of 'File.createNewFile()' is ignored" - IntelliJ, 2022
+				if(!config.getParentFile().exists()) {
+					config.getParentFile().mkdirs();
+				}
+				config.createNewFile();
+
+				File file = new File(config.getAbsolutePath());
 				FileWriter writer = new FileWriter(config);
 				writer.write(defaultConfig);
 
 				writer.close();
-
 				input = new Scanner(new File(fileName));
+
+
 			} catch(IOException er) {
 				NMTQ.LOGGER.info(er);
 			}
