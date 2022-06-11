@@ -13,33 +13,21 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public class MixinServerPlayNetworkHandler {
     @Redirect(method = "onPlayerMove", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/Vec3d;lengthSquared()D", ordinal = 0))
     public double preLengthSquared(Vec3d instance) {
-        if(Boolean.parseBoolean(NMTQ.config.getValue("playerMoveTooQuick"))) {
-            return 1000000000;
-        }
-        return instance.lengthSquared();
+        return 1000000000;
     }
 
     @Redirect(method = "onVehicleMove", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/math/Vec3d;lengthSquared()D", ordinal = 0))
     public double preVehicleLengthSquared(Vec3d instance) {
-        if(Boolean.parseBoolean(NMTQ.config.getValue("vehicleMoveTooQuick"))) {
-            return 1000000000;
-        }
-        return instance.lengthSquared();
+        return 1000000000;
     }
 
     @ModifyConstant(method = "onPlayerMove", constant = @Constant(doubleValue = 0.0625))
     private double modifyPlayerMoveDoubleConst(double original) {
-        if(Boolean.parseBoolean(NMTQ.config.getValue("playerMoveWrong"))) {
-            return 1000000000;
-        }
-        return original;
+        return 1000000000;
     }
 
     @ModifyConstant(method = "onVehicleMove", constant = @Constant(doubleValue = 0.0625, ordinal = 1))
     private double modifyVehicleMoveDoubleConst(double original) {
-        if(Boolean.parseBoolean(NMTQ.config.getValue("vehicleMoveWrong"))) {
-            return 1000000000;
-        }
-        return original;
+        return 1000000000;
     }
 }

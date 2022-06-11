@@ -1,6 +1,5 @@
 package ml.ikwid.nmtq;
 
-import ml.ikwid.nmtq.config.Config;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,17 +8,7 @@ public class NMTQ implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-
-	private static final String newConfig = """
-		# Use hashtags for comments
-		
-		playerMoveTooQuick=false
-		vehicleMoveTooQuick=false
-		playerMoveWrong=false
-		vehicleMoveWrong=false
-		""";
-	public static final Logger LOGGER = LogManager.getLogger("fabric-nmtq");
-	public static final Config config = new Config("config\\nmtq.txt", newConfig);
+	public static final Logger LOGGER = LogManager.getLogger("nmtq");
 
 	@Override
 	public void onInitialize() {
